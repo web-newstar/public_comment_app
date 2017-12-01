@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import localStore from "../util/localStore";
 import {CITYNAME} from "../config/localStoreKey";
 import * as userInfoActionsFromOtherFile from '../actions/userinfo';
+
 class App extends React.Component {
     constructor(props) {
         super(props);
@@ -27,7 +28,8 @@ class App extends React.Component {
         if (cityName == null) {
             cityName = '北京'
         }
-        console.log(this.props)
+        
+        // 将城市信息存储到redux中
         this.props.userInfoActions.update({
             cityName: cityName
         })
