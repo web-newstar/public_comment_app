@@ -1,5 +1,7 @@
 import React from 'react'
-import {getAdData} from '../../../fetch/home/home.js'
+import {getAdData} from '../../../fetch/home/home.js';
+import * as homeAdData from './AdData.js';
+import HomeAd from '../../../components/HomeAd'
 class Ad extends React.Component {
     constructor(props, context) {
         super(props, context);
@@ -8,24 +10,22 @@ class Ad extends React.Component {
         }
     }
     render() {
+        const data=this.state.data;
         return (
             <div>
-                <h1>这是ad</h1>
+                {this.state.data.length?
+                <HomeAd data={data}/>:<div>加载中...</div>}
             </div>
         )
     }
     componentDidMount() {
-        const result = getAdData();
-        console.log(result)
-        // result.then((res) => {
-        //     return res.json()
-        // }).then((json) => {
-        //     const data = json;
-        //     if (data.length) {
-        //         this.setState({data: data})
-        //     }
-
-        // })
+        setTimeout(()=>{
+            if(homeAdData.length){
+                this.setState((preState)=>{
+                    return {data:preState.data.concat(homeAdData)}
+                })
+            }
+        },300)
     }
 }
 
