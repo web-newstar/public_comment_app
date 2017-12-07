@@ -4,6 +4,7 @@ import configureStore from './store/configureStore';
 import RouteMap from './router/routeMap';
 
 import './static/css/common.css';
+import './static/css/pure-min.css';
 import './static/css/font.css';
 // 创建Redux的 store 对象
 const store= configureStore();

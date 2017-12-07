@@ -1,5 +1,6 @@
-import React from 'react'
+import React from 'react';
 import './style.css'
+import {Link} from "react-router-dom";
 class HomeHeader extends React.Component {
     constructor(props, context) {
         super(props, context);
@@ -8,10 +9,12 @@ class HomeHeader extends React.Component {
         return (
             <div id="home-header" className="clear-fix">
                 <div className="home-header-left float-left">
-                    <span>{this.props.cityName}</span>
-                    &nbsp;
-                    <i className="icon-angle-down"></i>
-                    </div>
+                    <Link to="/city">
+                        <span>{this.props.cityName}</span>
+                        &nbsp;
+                        <i className="icon-angle-down"></i>
+                    </Link>
+                </div>    
                 <div className="home-header-right float-right">
                     <i className="icon-user"></i>
                 </div>                
