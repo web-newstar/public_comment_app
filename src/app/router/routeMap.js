@@ -8,8 +8,7 @@ import User from '../containers/User'
 import Search from '../containers/Search' 
 import Detail from '../containers/Detail'
 import NotFound from '../containers/NotFound/404'
-import TouchList from "../containers/TouchList";
-console.log(TouchList)
+// import TouchList from "../containers/TouchList";
 class RouterMap extends React.Component {
     render() {
         return (
@@ -22,11 +21,13 @@ class RouterMap extends React.Component {
                             <App>
                                 <Switch>
                                     <Route exact path="/" component={Home}/>
-                                    <Route path='/city' component={City}/>
+                                    <Route path='/city' render={({history})=>(
+                                        <City history={history}/>
+                                    )}/>
                                     <Route path='/user' component={User}/>
                                     <Route path='/search' component={Search}/>
                                     <Route path='/detail' component={Detail}/>
-                                    <Route path="/touchlist" component={TouchList}/>
+                                    {/* <Route path="/touchlist" component={TouchList}/> */}
                                     <Route path='*' component={NotFound}/>
                                 </Switch>
                             </App>
