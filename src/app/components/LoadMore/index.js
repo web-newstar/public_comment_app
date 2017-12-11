@@ -28,6 +28,9 @@ class LoadMore extends React.Component{
     loadingDate(){
         // 节流
         function callBack(){
+            if(this.ele==null){
+                return;
+            }
             const loadMoreHeight=this.ele.getBoundingClientRect().height;
             const loadMoreTop=this.ele.getBoundingClientRect().top;    
             const windowHeight=window.screen.height;

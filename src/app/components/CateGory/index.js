@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import {Link} from 'react-router-dom';
 import './style.css';
 import ReactSwipe from 'react-swipe';
 class CateGory extends React.Component {
@@ -20,7 +21,10 @@ class CateGory extends React.Component {
                 <ReactSwipe className="carousel" swipeOptions={opt}>
                     <div className="carousel-item">
                         <ul className="clear-fix">
-                            <li className="float-left jingdian">景点</li>
+                            <Link to="/search/jingdian/a">
+                                <li className="float-left jingdian">景点</li>
+                            </Link>
+                            
                             <li className="float-left ktv">KTV</li>
                             <li className="float-left gouwu">购物</li>
                             <li className="float-left shenghuofuwu">生活服务</li>

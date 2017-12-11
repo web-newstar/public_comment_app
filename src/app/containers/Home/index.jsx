@@ -13,7 +13,7 @@ class Home extends React.Component {
         const cityName=this.props.userinfo.cityName;
         return (
             <div>
-               <HomeHeader cityName={cityName}/>
+               <HomeHeader cityName={cityName} history={this.props.history}/>
                <CateGory/>
                <div style={{height:"15px"}}></div>
                <Ad/>

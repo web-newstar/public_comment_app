@@ -20,12 +20,14 @@ class RouterMap extends React.Component {
                         return (
                             <App>
                                 <Switch>
-                                    <Route exact path="/" component={Home}/>
+                                    <Route exact path="/" render={({history})=>{
+                                        return <Home history={history}/>
+                                    }}/>
                                     <Route path='/city' render={({history})=>(
                                         <City history={history}/>
                                     )}/>
                                     <Route path='/user' component={User}/>
-                                    <Route path='/search' component={Search}/>
+                                    <Route path='/search/:categary/:keyword' component={Search}/>
                                     <Route path='/detail' component={Detail}/>
                                     {/* <Route path="/touchlist" component={TouchList}/> */}
                                     <Route path='*' component={NotFound}/>
