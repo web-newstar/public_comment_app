@@ -17,6 +17,7 @@ class SearchInput extends React.Component{
             value={this.state.value} />
         )
     }
+
     componentDidMount(){
         this.setState({
             value:this.props.value
@@ -28,10 +29,13 @@ class SearchInput extends React.Component{
         })
     }
     keyUpHandle(e){
+        const value=e.target.value;
         if(e.keyCode!==13){
             return;
-        }   
-        this.props.enterHandle(this.state.value)
+        }
+        if(this.props.hasOwnProperty("enterHandle")){
+            this.props.enterHandle(this.state.value)
+        }
     }
 }
 export default SearchInput;

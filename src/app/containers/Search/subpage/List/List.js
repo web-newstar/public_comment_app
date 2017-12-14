@@ -3,8 +3,12 @@ import "./style.css";
 import * as ListData from './ListData';
 import ListComponent from '../../../../components/List'
 import LoadMore from "../../../../components/LoadMore";
-import Loading from '../../../../components/Loading';
-
+const initState={
+    data:[], // 存储列表信息
+    hasMore:false, // 记录当前状态下，还没有更多的的数据可供加载
+    isLoadingMore:false, // 记录当前状态下，是'加载中...'和还是'点击加载更多'
+    page:1   // 记录下一页的页码，首页的页码是 0
+}
 class List extends React.Component{
     constructor(props,context){
         super(props,context);
@@ -19,8 +23,7 @@ class List extends React.Component{
         const data=this.state.data;
         return (
             <div>
-                <h2 className="home-list-title">猜你喜欢</h2>
-                {this.state.data.length?<ListComponent data={data}/>:<Loading/>}
+                {this.state.data.length?<ListComponent data={data}/>:<div>加载中...</div>}
                 {
                     <LoadMore isLoadingMore={this.state.isLoadingMore} loadMoreFn={this.LoadMoreData.bind(this)} dataLength={this.state.data.length}/>
                 }
@@ -29,6 +32,18 @@ class List extends React.Component{
     }
     componentDidMount(){
         // 获取首屏数据
+        this.loadFirstPageData()
+    }
+    componentDidUpdate(preProps,preState){
+        const keyword=this.props.keyword;
+        const category=this.props.category;
+        const cityName=this.props.cityName;
+        if(keyword===preProps.keyword && category===preProps.category){
+            return 
+        }
+        // 重置state
+        this.setState(initState)
+        // 重新获取首屏数据
         this.loadFirstPageData()
     }
     // 获取首屏数据

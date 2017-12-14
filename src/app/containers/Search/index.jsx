@@ -1,20 +1,39 @@
-import React from 'react'
-// import PureRenderMixin from 'react-addons-pure-render-mixin'
-
+import React from 'react';
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import SearchHeader from '../../components/SearchHeader';
+import SearchList from "./subpage/List/List"
 class Search extends React.Component {
     constructor(props, context) {
         super(props, context);
-        // this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
     }
     render() {
+        const params=this.props.match.params;
+        const history=this.props.history;
+        const cityName=this.props.userinfo.cityName;
+
         return (
             <div>
-                <h1>Search</h1>
+                <SearchHeader keyword={params.keyword} history={history}/>
+                <SearchList keyword={params.keyword} category={params.Category} cityName={cityName}/>
             </div>
         )
     }
 }
+// -------------------redux react 绑定--------------------
 
-// 使用 require.ensure 异步加载，还不支持 ES6 的 export 
-export default Search
-// module.exports = Search
+function mapStateToProps(state) {
+    return {
+        userinfo: state.userinfo
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+    }
+}
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Search)
+// export default Search

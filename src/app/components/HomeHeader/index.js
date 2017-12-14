@@ -24,15 +24,14 @@ class HomeHeader extends React.Component {
                         <i className="icon-search"></i>
                         <SeacthInput value="" enterHandle={this.enterHandle.bind(this)}/>
                     </div>
-                    
                 </div>
             </div>
         )
     }
     enterHandle(value){
         const history=this.props.history;
-        console.log(value)
-        history.push("/search/all/"+encodeURIComponent(value))
+        history.push("/search/all/"+encodeURIComponent(value));
+        
     }
 }
 

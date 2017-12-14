@@ -1,0 +1,36 @@
+.loading-container{
+    padding:7px 5px;
+    background:#f1f1f1;
+    text-align: center;
+}
+
+.loading-container div{
+    display: inline-block;
+    width:auto;
+}
+.loading-container div span{
+    font-size: 13px;
+    line-height: 1;;
+    color:#888;
+}
+.loading-container span:nth-child(1){
+    margin-right:10px;
+    margin-top:1px;
+    animation: icon infinite 1.5s linear;
+}
+@keyframes icon {
+    from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@-moz-keyframes icon {
+    from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@-webkit-keyframes icon {
+    from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@-o-keyframes icon {
+    from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

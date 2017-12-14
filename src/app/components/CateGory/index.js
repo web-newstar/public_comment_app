@@ -21,7 +21,7 @@ class CateGory extends React.Component {
                 <ReactSwipe className="carousel" swipeOptions={opt}>
                     <div className="carousel-item">
                         <ul className="clear-fix">
-                            <Link to="/search/jingdian/a">
+                            <Link to="/search/jingdian">
                                 <li className="float-left jingdian">景点</li>
                             </Link>
                             

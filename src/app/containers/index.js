@@ -2,7 +2,7 @@ import React from "react";
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-import localStore from "../util/localStore";
+import LocalStore from "../util/localStore";
 import {CITYNAME} from "../config/localStoreKey";
 import * as userInfoActionsFromOtherFile from '../actions/userinfo';
 
@@ -22,9 +22,9 @@ class App extends React.Component {
 }
             </div>
         )
-    }
+    }S
     componentDidMount() {
-        let cityName = localStore.getItem(CITYNAME);
+        let cityName = LocalStore.getItem(CITYNAME);
         if (cityName == null) {
             cityName = '北京'
         }

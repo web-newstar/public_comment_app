@@ -27,8 +27,8 @@ class RouterMap extends React.Component {
                                         <City history={history}/>
                                     )}/>
                                     <Route path='/user' component={User}/>
-                                    <Route path='/search/:categary/:keyword' component={Search}/>
-                                    <Route path='/detail' component={Detail}/>
+                                    <Route path="/search/:Category/:keyword?" component={Search}/>
+                                    <Route path='/detail/:id' component={Detail}/>
                                     {/* <Route path="/touchlist" component={TouchList}/> */}
                                     <Route path='*' component={NotFound}/>
                                 </Switch>

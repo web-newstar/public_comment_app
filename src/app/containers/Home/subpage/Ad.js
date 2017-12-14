@@ -1,7 +1,8 @@
 import React from 'react'
 import {getAdData} from '../../../fetch/home/home.js';
 import * as homeAdData from './AdData.js';
-import HomeAd from '../../../components/HomeAd'
+import HomeAd from '../../../components/HomeAd';
+import Loading from '../../../components/Loading';
 class Ad extends React.Component {
     constructor(props, context) {
         super(props, context);
@@ -14,7 +15,7 @@ class Ad extends React.Component {
         return (
             <div>
                 {this.state.data.length?
-                <HomeAd data={data}/>:<div>加载中...</div>}
+                <HomeAd data={data}/>:<Loading/>}
             </div>
         )
     }

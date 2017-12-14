@@ -1,12 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import './style.css'
-import { bindActionCreators } from 'redux'
+import { bindActionCreators } from 'redux';
 import Header from '../../components/Header';
 import CurrentCity from '../../components/CurrentCity';
 import CityList from '../../components/CityList';
 import * as userInfoActionsFromOtherFile from '../../actions/userinfo';
 import localStore from '../../util/localStore';
+import {CITYNAME} from "../../config/localStoreKey";
 class City extends React.Component {
     constructor(props, context) {
         super(props, context);
@@ -32,7 +33,7 @@ class City extends React.Component {
         this.props.userInfoActions.update(userinfo)
         
         // 修改localStorage
-        localStore.setItem('CITYNAME',newCity)
+        localStore.setItem(CITYNAME,newCity)
         // 跳转到首页
     }
 
