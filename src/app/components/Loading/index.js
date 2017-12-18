@@ -9,7 +9,7 @@ class Loading extends React.Component {
 
         return (
             <div className="loading-container">
-                <div className="clear-fix">
+                <div className="clear-fix ">
                     <span className="icon-share-square-o float-left"></span>
                     <span className="loading-text float-left">数据正在加速赶来</span>
                 </div>

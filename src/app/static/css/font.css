@@ -70,4 +70,6 @@
   .icon-tablet:before {
     content: "\f10a";
   }
- 
+  .icon-spinner6:before {
+    content: "\e97f";
+  }
